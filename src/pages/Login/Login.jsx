@@ -21,17 +21,19 @@ const Login = () => {
                 const loggedInUser = result.user;
                 const user = {email};
 
-                axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+                axios.post('https://car-doctor-server-3-final.vercel.app/jwt', user, {withCredentials: true})
                 .then(res => {
                     if(res.data.status){
                        navigate(location?.state ? location.state : "/"); 
                     }
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                 })
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                // console.log(error)
+            });
     }
 
     return (
